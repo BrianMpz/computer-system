@@ -58,6 +58,8 @@ public class MemoryEditor : MonoBehaviour
         else
         {
             Debug.LogError("Invalid input: Please enter a valid integer for data1.");
+            Data currentData = cpu.memory.Memory[address];
+            cpu.memory.Write(address, new Data(0, currentData.data2));
         }
     }
 

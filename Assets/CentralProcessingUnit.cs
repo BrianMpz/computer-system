@@ -42,10 +42,20 @@ public class CentralProcessingUnit : MonoBehaviour
     private int operand; // Cache operand for quick access
 
     public TMP_Text acc;
+    
+    public void ToggleDebug(bool value)
+    {
+        debug = value;
+    }
+    public void ToggleFrameStep(bool value)
+    {
+        frameStep = value;
+    }
 
     private void OnDisable() {
         StopAllCoroutines();
     }
+    
     public void Run()
     {
         StopAllCoroutines();
@@ -54,6 +64,7 @@ public class CentralProcessingUnit : MonoBehaviour
         endProcess = false;
         StartCoroutine(ControlUnit());
     }
+
     IEnumerator ControlUnit()
     {
         acc.text = $"Accumulator: {accumulator}";
@@ -76,8 +87,9 @@ public class CentralProcessingUnit : MonoBehaviour
         double secondsPerCycle = elapsedSeconds / cycles; // Calculate seconds per cycle
 
         print($"Execution Time: {elapsedSeconds} seconds");
+        print($"{cycles} cycles");
         print($"{mhz} MHz");
-        print($"Seconds per cycle: {secondsPerCycle} seconds");
+        print($"Seconds per cycle: {secondsPerCycle} seconds \n\n");
 
         acc.text = $"Accumulator: {accumulator}";
 

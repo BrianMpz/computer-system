@@ -21,7 +21,7 @@ public class Logger : MonoBehaviour
     private void HandleLog(string logText, string stackTrace, LogType logType)
     {
         // Append the new log to the consoleText
-        consoleText.text += logText + "\n" + "\n";
+        consoleText.text += logText + "\n";
     }
 
     private void UpdateConsoleText()
@@ -40,7 +40,7 @@ public class Logger : MonoBehaviour
             // Display all log entries when expanded
             foreach (string logEntry in logEntries)
             {
-                consoleText.text += logEntry + "\n" + "\n";
+                consoleText.text += logEntry + "\n";
             }
         }
     }

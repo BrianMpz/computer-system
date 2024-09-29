@@ -28,8 +28,6 @@ public class GraphicsHandler : MonoBehaviour
         {
             for (int i = 0; i < pixelData.Length; i++)
             {
-                memory.Memory[i + startAddress].data2 = Random.Range(0, 2);
-
                 if(memory.Memory[i + startAddress].data2 > 0)
                 {
                     pixelData[i] = Color.white;
@@ -38,11 +36,10 @@ public class GraphicsHandler : MonoBehaviour
                 {
                     pixelData[i] = Color.black;
                 }
-                displayTexture.SetPixels(pixelData);
-                displayTexture.Apply();
-                yield return null;
             }
-            yield return new WaitForSeconds(0.1f);
+            displayTexture.SetPixels(pixelData);
+            displayTexture.Apply();
+            yield return null;
         }
     }
 }
